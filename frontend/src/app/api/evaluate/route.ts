@@ -140,7 +140,7 @@ export async function POST(req: NextRequest) {
         const finalPayload = enforceTokenLimit(cleanedDiff, 2000);
 
         // 5. Evaluate with Gemini (Retry logic for 503s)
-        const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
         
         const systemPrompt = `You are a strict, elite Staff Engineer reviewing a dev's git diffs. You prioritize modularity, security, and performance. Analyze the diffs objectively. Look for tight coupling, memory leaks, N+1 queries, and poor naming.
 Output strictly as a JSON object with two fields:
